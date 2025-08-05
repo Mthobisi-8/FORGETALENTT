@@ -166,16 +166,16 @@ const Recruit = () => {
                     onClick={() => setSelectedJob(index)}
                   >
                     <CardHeader>
-                      <CardTitle className="text-xl font-semibold text-sky-800 font-heading">
+                      <CardTitle className="text-xl font-semibold text-purple-800 font-heading">
                         {job.title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="flex items-center space-x-2 text-sky-400">
+                      <div className="flex items-center space-x-2 text-purple-400">
                         <Briefcase size={16} />
                         <span>{job.experience}</span>
                       </div>
-                      <div className="flex items-center space-x-2 text-sky-400 mt-1">
+                      <div className="flex items-center space-x-2 text-purple-400 mt-1">
                         <MapPin size={16} />
                         <span>{job.location}</span>
                       </div>
@@ -193,21 +193,21 @@ const Recruit = () => {
                 <CardContent>
                   {selectedJob !== null ? (
                     <div className="space-y-6">
-                      <h2 className="text-2xl font-bold text-sky-700 font-heading">
+                      <h2 className="text-2xl font-bold text-purple-700 font-heading">
                         {filteredJobs[selectedJob].title}
                       </h2>
                       <div className="space-y-4">
                         <div>
-                          <h3 className="text-lg font-semibold text-sky-500">Requirements</h3>
-                          <p className="text-sky-500">{filteredJobs[selectedJob].description}</p>
+                          <h3 className="text-lg font-semibold text-purple-500">Requirements</h3>
+                          <p className="text-purple-200">{filteredJobs[selectedJob].description}</p>
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold text-sky-500">Experience Level</h3>
-                          <p className="text-sky-500">{filteredJobs[selectedJob].experience}</p>
+                          <h3 className="text-lg font-semibold text-purple-500">Experience Level</h3>
+                          <p className="text-purple-200">{filteredJobs[selectedJob].experience}</p>
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold text-sky-500">Location</h3>
-                          <p className="text-sky-500">{filteredJobs[selectedJob].location}</p>
+                          <h3 className="text-lg font-semibold text-purple-500">Location</h3>
+                          <p className="text-purple-200">{filteredJobs[selectedJob].location}</p>
                         </div>
                       </div>
                       <a
