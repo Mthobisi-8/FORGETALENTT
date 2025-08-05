@@ -1,0 +1,38 @@
+.leFadeIn span {
+  animation-name: leFadeIn;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes leFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes bounce-custom {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-20px);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.bounce-custom {
+  display: inline-block;
+  animation: bounce-custom 1s infinite;
+}
+
+/* Optional delays for a staggered effect */
+.delay-a {
+  animation-delay: 0s;
+}
+
+.delay-i {
+  animation-delay: 0.2s;
+}
