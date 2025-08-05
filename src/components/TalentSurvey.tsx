@@ -155,17 +155,17 @@ const TalentSurvey = () => {
   return (
     <Card className="w-full max-w-2xl mx-auto mt-8 border-2 border-pink-950 rounded-t rounded-2xl text-2xl">
       <CardHeader>
-        <CardTitle className="text-sky-200 ">Forge Talent Survey</CardTitle>
+        <CardTitle className="text-purple-200 ">Forge Talent Survey</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-6">
           <div className="text-sm text-muted-foreground ">
             Question {currentQuestionIndex + 1} of {currentQuestions.length}
           </div>
-          <h2 className="text-xl font-semibold text-sky-200">
+          <h2 className="text-xl font-semibold text-purple-200">
             {currentQuestions[currentQuestionIndex].text}
           </h2>
-          <RadioGroup onValueChange={handleAnswer} className="space-y-3 text-sky-200">
+          <RadioGroup onValueChange={handleAnswer} className="space-y-3 text-purple-200">
             {currentQuestions[currentQuestionIndex].options.map((option) => (
               <div key={option} className="flex items-center space-x-2">
                 <RadioGroupItem value={option} id={option} />

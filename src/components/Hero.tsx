@@ -58,7 +58,7 @@ const Hero = () => {
           </Button>
 
           {/* Upskill button  */}
-          <Button asChild className="bg-gradient-to-r from-sky-700 via-gray-200 to-sky-700 text-gray-950 hover:text-lg  hover:bg-sky-700 hover:text-black rounded-3xl font-bold mt-10 w-32">
+          <Button asChild className="bg-gradient-to-r from-purple-700 via-gray-200 to-purple-700 text-gray-950 hover:text-lg  hover:bg-sky-700 hover:text-black rounded-3xl font-bold mt-10 w-32">
           <Link to="/Courses">UPSKILL</Link>
           </Button>
 </div>
@@ -134,7 +134,7 @@ const Hero = () => {
               </button>
               {openItems[index] && (
                 <div className="p-4 rounded-2xl bg-gray-800 bg-opacity-50">
-                  <p className="text-sky-400">{item.content}</p>
+                  <p className="text-purple-200">{item.content}</p>
                 </div>
               )}
             </div>

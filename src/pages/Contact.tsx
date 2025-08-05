@@ -436,15 +436,15 @@ const Contact: React.FC = () => {
               <h2 className="text-3xl font-bold text-gradient text-gray-200 italic">We are Here to Help</h2>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 text-sky-200">
-                  <Mail className="h-5 w-5 text-sky-400" />
+                  <Mail className="h-5 w-5 text-purple-500" />
                   <span className="text-sky-50">recruitment@forgeacademy.co.za</span>
                 </div>
                 <div className="flex items-center space-x-3 text-sky-200">
-                  <Phone className="h-5 w-5 text-sky-400" />
+                  <Phone className="h-5 w-5 text-purple-500" />
                   <span className="text-sky-50">+27 10 880 3795</span>
                 </div>
                 <div className="flex items-center space-x-3 text-sky-200">
-                  <MapPin className="h-5 w-5 text-sky-400" />
+                  <MapPin className="h-5 w-5 text-purple-500" />
                   <span className="text-sky-50">210 Epsom Avenue Randburg 2169</span>
                 </div>
                 <div>

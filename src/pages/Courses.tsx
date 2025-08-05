@@ -258,7 +258,7 @@ const Courses = () => {
               />
             </CardHeader>
             <div className="flex flex-col flex-grow p-6">
-              <CardTitle className="text-sky-600 text-xl font-semibold mt-2 group-hover:text-white">
+              <CardTitle className="text-white text-xl font-semibold mt-2 group-hover:text-white">
                 {course.title}
               </CardTitle>
               <CardContent className="p-0 mt-4 flex-grow">
@@ -318,22 +318,22 @@ const Courses = () => {
               {selectedCourse?.subCourses?.length ? (
                 <ul className="space-y-4">
                   {selectedCourse.subCourses.map((sub, idx) => (
-                    <li key={idx} className="text-purple-300 border-b border-purple-700 pb-2">
+                    <li key={idx} className="text-purple-700 border-b border-purple-700 pb-2">
                       <button
                         onClick={() =>
                           setExpandedSubCourseIndex(
                             expandedSubCourseIndex === idx ? null : idx
                           )
                         }
-                        className="text-left w-full text-purple-200 font-semibold hover:text-pink-500 text-xl"
+                        className="text-left w-full text-purple-700 font-semibold hover:text-purple-300 text-xl"
                       >
                         {sub.title}
                       </button>
                       {expandedSubCourseIndex === idx && (
                         <p className="mt-2 text-purple-200 font-semibold">
-                          <span className="text-sky-500 text-lg font-bold">Description : </span>{sub.description}
+                          <span className="text-purple-700 text-lg font-bold">Description : </span>{sub.description}
                           <br />
-                          <span className="text-sky-500 text-xl font-bold">Price : </span>{sub.Cost}
+                          <span className="text-purple-700 text-xl font-bold">Price : </span>{sub.Cost}
                           <br />
                           <span className="text-sm text-red-500 font-bold animate-pulse">{sub.NB}</span>
                           <a
@@ -342,7 +342,7 @@ const Courses = () => {
                             rel="noopener noreferrer"
                             className="w-full block"
                           >
-                            <Button className="w-full bg-pink-900 text-lg py-5 rounded-xl mt-6 mb-4 italic font-serif8">
+                            <Button className="w-full bg-purple-700 text-lg py-5 rounded-xl mt-6 mb-4 italic font-serif8">
                               Enroll
                             </Button>
                           </a>
@@ -378,7 +378,7 @@ const Courses = () => {
                       alt={testimonial.name}
                       className="w-60 h-30 mx-auto rounded-full rounded-4xl mb-4 object-cover"
                       />
-                        <p className="text-[hsl(190,60%,90%)] mb-4 italic group-hover:text-sky-600">"{testimonial.text}"</p>
+                        <p className="text-[hsl(190,60%,90%)] mb-4 italic group-hover:text-purple-300">"{testimonial.text}"</p>
                         <p className="text-pink-400 font-semibold">{testimonial.name}</p>
                         <p className="text-[hsl(190,60%,90%)] text-sm">{testimonial.role}</p>
                       </CardContent>

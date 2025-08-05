@@ -169,7 +169,7 @@ const InteractiveFeature: React.FC = () => {
                   >
                     <Icon className={`w-8 h-8 ${feature.color}`} />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-sky-300">{feature.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-purple-200">{feature.title}</h3>
                 </div>
 
                 {/* Back Side */}

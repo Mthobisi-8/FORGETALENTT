@@ -52,11 +52,11 @@ const Features = () => {
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className="flex justify-center mb-4">
-                  <Icon className="h-12 w-12 text-pink-500 transition-transform duration-300 hover:scale-110" />
+                  <Icon className="h-12 w-12 text-white transition-transform duration-300 hover:scale-110" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-sky-700 font-heading text-center group-hover:text-gray-300">
+                <h3 className="text-xl font-semibold mb-2 text-purple-200 font-heading text-center group-hover:text-gray-300">
                   {feature.title}                </h3>
-                <p className="text-sky-400 text-center">{feature.description}</p>
+                <p className="text-purple-200 text-center">{feature.description}</p>
               </div>
             );
           })}

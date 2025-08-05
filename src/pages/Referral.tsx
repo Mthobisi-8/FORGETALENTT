@@ -96,11 +96,11 @@ const Referral: React.FC = () => {
   const paragraphStyle: React.CSSProperties = {
     fontSize: "20px",
     fontWeight: "bolder",
-    color: "#38BDF8",
+    color: "#E9D5FF",
   };
 
   const descriptionStyle: React.CSSProperties = {
-    color: "rgb(2, 132, 199)",
+    color: "#E9D5FF",
     fontSize: "16px",
   };
 
@@ -138,7 +138,7 @@ const Referral: React.FC = () => {
         assessing technical candidates for data-driven, high-performing
         problem solvers in your business.
       </p>
-      <Button asChild className="bg-purple-600 hover:bg-sky-700 rounded-xl font-bold">
+      <Button asChild className="bg-purple-600 hover:bg-purple-950 rounded-xl font-bold">
         <Link to="/contact">Contact Us</Link>
       </Button>
     </div>
@@ -194,25 +194,25 @@ const Referral: React.FC = () => {
           >
             {[
               {
-                icon: <GraduationCap className="text-4xl text-purple-400 mx-auto" />,
+                icon: <GraduationCap className="text-4xl text-purple-950 mx-auto" />,
                 title: "Squad Training",
                 description:
                   "Improve the proficiency of your global tech workforce with internationally recognised training programs.",
               },
               {
-                icon: <HeartHandshake className="text-4xl text-purple-400 mx-auto" />,
+                icon: <HeartHandshake className="text-4xl text-purple-950 mx-auto" />,
                 title: "Value Proposition for Employees",
                 description:
                   "Exclusive employer partner discounts on bootcamps for your staff and their families.",
               },
               {
-                icon: <BookPlus className="text-4xl text-purple-400 mx-auto" />,
+                icon: <BookPlus className="text-4xl text-purple-950 mx-auto" />,
                 title: "Accredited Skill Development Programs",
                 description:
                   "Gain B-BBEE points, tax benefits, and access to SETA subsidies with our customisable training solutions.",
               },
               {
-                icon: <Table2 className="text-4xl text-purple-400 mx-auto" />,
+                icon: <Table2 className="text-4xl text-purple-950 mx-auto" />,
                 title: "Customized Training",
                 description:
                   "Tailored digital strategy training designed to meet your business and technology needs.",
@@ -220,7 +220,7 @@ const Referral: React.FC = () => {
             ].map((service, index) => (
               <Card
                 key={index}
-                className="bg-gray-800 border-pink-500/40 service-card m-10"
+                className="bg-gray-950 border-pink-500/40 service-card m-10"
                 style={cardStyle}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "scale(1.1)";
@@ -232,10 +232,10 @@ const Referral: React.FC = () => {
               >
                 <CardContent className="p-6 text-center">
                   <div className="mb-4 text-sky-400">{service.icon}</div>
-                  <p style={tipStyle} className="text-sky-400">
+                  <p style={tipStyle} className="text-purple-400 mb-5">
                     {service.title}
                   </p>
-                  <p style={secondTextStyle} className="text-sky-300 font-extrabold">
+                  <p style={secondTextStyle} className="text-purple-200 font-extrabold">
                     {service.description}
                   </p>
                 </CardContent>
@@ -251,7 +251,7 @@ const Referral: React.FC = () => {
           <h2 className="text-white text-4xl font-bold text-gradient mb-8 italic bg-gradient-to-r from-sky-400 to-pink-600 py-1">
             Build a Future-Ready Workforce with Forge Talent
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-bold">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-bold text-purple-200">
             {[
               {
                 img: "/Corp2.jpg",
@@ -276,7 +276,7 @@ const Referral: React.FC = () => {
             ].map((card, index) => (
               <Card
                 key={index}
-                className="bg-gray-400 border-purple-500/20 shadow-lg shadow-pink-900 rounded-3xl"
+                className="bg-gray-400 border-purple-500/20 shadow-lg shadow-purple-900 rounded-3xl"
                 style={{ height: "600px", overflow: "hidden" }}
               >
                 <div
@@ -308,10 +308,12 @@ const Referral: React.FC = () => {
                         alt={card.title}
                         style={{ objectFit: "cover" }}
                       />
-                      <h5 style={paragraphStyle}>{card.title}</h5>
+                      <h5 className='text-purple-200' style={paragraphStyle}>{card.title}
+                        
+                      </h5>
                       {openCard !== index && (
                         <Button
-                          className="mt-8 md:hidden items-center rounded-xl"
+                          className="mt-8 md:hidden items-center rounded-xl bg-purple-950"
                           onClick={() => handleToggleCard(index)}
                           aria-label={`Open ${card.title}`}
                         >
@@ -324,7 +326,7 @@ const Referral: React.FC = () => {
                     <p style={descriptionStyle}>{card.text}</p>
                     {openCard === index && (
                       <Button
-                        className="md:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 mt-4 rounded-xl"
+                        className="md:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 mt-4 rounded-xl bg-purple-950"
                         onClick={() => handleToggleCard(index)}
                         aria-label={`Close ${card.title}`}
                       >

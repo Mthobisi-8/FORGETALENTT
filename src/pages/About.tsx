@@ -36,13 +36,13 @@ const About = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
                   asChild
-                  className="rounded-3xl w-full sm:w-auto bg-pink-500 hover:bg-sky-200 hover:text-black text-[hsl(190,60%,90%)] transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[hsl(270,70%,30%)]/50"
+                  className="rounded-3xl w-full sm:w-auto bg-purple-950 hover:bg-sky-200 hover:text-black border border-purple-500 text-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[hsl(270,70%,30%)]/50"
                 >
                   <Link to="/courses">Explore Courses</Link>
                 </Button>
                 <Button
                   asChild
-                  className="rounded-3xl w-full sm:w-auto bg-transparent border border-pink-500 text-white hover:text-black hover:bg-purple-900 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[hsl(270,70%,30%)]/50"
+                  className="rounded-3xl w-full sm:w-auto bg-transparent border border-purple-500 text-white hover:text-black hover:bg-purple-900 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[hsl(270,70%,30%)]/50"
                 >
                   <Link to="/contact">Get in Touch</Link>
                 </Button>
@@ -115,7 +115,7 @@ const About = () => {
                     <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mt-2">
                       {index + 1}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2 text-sky-500">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2 text-purple-200">
                       {step.title}
                     </h3>
                     <p className="text-purple-300/80 text-sm sm:text-base">{step.description}</p>
@@ -131,7 +131,7 @@ const About = () => {
           {/* Partners Section */}
           <section className="py-16 px-4 sm:px-6 lg:px-8 bg-transparent">
             <div className="container mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-12 text-transparent bg-clip-text bg-white italic">
+              <h2 className="text-3xl font-bold text-center mb-12 text-purple-200 bg-clip-text bg-white italic">
                 Our Partners
               </h2>
               <div className="overflow-hidden">
@@ -141,7 +141,7 @@ const About = () => {
                       key={index}
                       src={partner.src}
                       alt={partner.alt}
-                      className="h-24 sm:h-32 md:h-48 rounded-xl object-contain"
+                      className="h-24 sm:h-32 md:h-48 rounded-xl object-contain bg-transparent"
                     />
                   ))}
                 </div>
@@ -179,7 +179,7 @@ const steps = [
 const partners = [
   { src: "/AWS_Partner.png", alt: "AWS Partner" },
   { src: "/Comptia_Partner.png", alt: "CompTIA Partner" },
-  { src: "/LASBN_Partners.png", alt: "LASBN Partner" },
+  
   { src: "/Nokia_Partner.png", alt: "Nokia Partner" },
   { src: "/UX_Partner.png", alt: "UX Partner" },
 ];
