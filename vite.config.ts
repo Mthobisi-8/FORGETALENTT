@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-   base: 'https://application.forgetalent.co.za/',
+   base: 'https://forgetalent.co.za/',
  
   server: {
     host: "::",
