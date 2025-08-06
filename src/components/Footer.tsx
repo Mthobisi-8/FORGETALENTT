@@ -90,12 +90,12 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-pink-500 mb-4">Contact Us</h3>
             <div className="hidden lg:block">
               <ul className="space-y-2 text-[hsl(190,60%,90%)]">
-                <li>Email: recruitment@forgeacademy.co.za</li>
+                <li>Email: talent@forgeacademy.co.za</li>
                 <li>Phone: +27 10 880 3795</li>
               </ul>
             </div>
             <div className="lg:hidden flex space-x-4">
-              <a href="mailto:recruitment@forgeacademy.co.za" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300">
+              <a href="mailto:talent@forgeacademy.co.za" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300">
                 <Mail className="h-6 w-6" />
               </a>
               <a href="tel:+27108803795" className="text-[hsl(190,60%,90%)] hover:text-pink-400 transition duration-300">

@@ -16,42 +16,13 @@ const Recruit = () => {
 
   const jobs = [
     {
-      title: "Software Development",
-      description: "Bachelor’s degree in Computer Science or Engineering. Proficiency in Java, Python, or JavaScript. Experience with frameworks like React, Angular, or Spring Boot. Understanding of database management and cloud services. Strong problem-solving skills and ability to work in an agile environment.",
-      experience: "Internship",
-      category: "Software Development",
-      location: "Remote",
+      title: "Join Talent Pool",
+      description: "Candidate expresses interest in being considered for upcoming job opportunities, even if there's no current opening. It helps companies stay connected with skilled individuals and fill roles faster when they arise.",
+      experience: "No Experience ",
+      category: "Talent Pool",
+      location: "Remote/Onsite",
     },
-    {
-      title: "Comptia Instructor",
-      description: "Bachelor’s degree in Computer Science, Information Security, or related field. Understanding of security principles, firewalls, and encryption techniques. Knowledge of security assessment tools like Wireshark, Nmap, or Metasploit. Experience in ethical hacking and penetration testing is a plus.",
-      experience: "Apprentice",
-      category: "Cybersecurity",
-      location: "Hybrid",
-    },
-    {
-      title: "UI/UX Designer",
-      description: "Bachelor's degree in Computer Science, Design, or a related field. Proficiency in design tools such as Figma, Sketch, or Adobe XD. Understanding of user-centered design principles, wireframing, and prototyping. Experience working in collaborative development environments.",
-      experience: "Entry Level",
-      category: "UI/UX Design",
-      location: "Onsite",
-    },
-
-    {
-      title: "IT Support",
-      description: "Matric, A+ certification required. Advantageous certifications: MD-100, MD-101, or N+. Experience with troubleshooting hardware and software issues. Strong communication and customer support skills.",
-      experience: "Mid-Level",
-      category: "IT Support",
-      location: "Hybrid",
-    },
-
-    {
-      title: "Cloud Computing",
-      description: "Minimum of a Higher Certificate / Occupational Certificate Level 5 (NQF Level 5) in A+/N+. Experience with cloud platforms such as AWS, Azure, or Google Cloud. Understanding of virtualization and containerization technologies.",
-      experience: "Senior Level",
-      category: "Cloud Computing",
-      location: "Remote",
-    },
+ 
   ];
 
   const categories = ["All", ...new Set(jobs.map((job) => job.category))];

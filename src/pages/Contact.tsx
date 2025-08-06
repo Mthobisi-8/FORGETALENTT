@@ -437,7 +437,7 @@ const Contact: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 text-sky-200">
                   <Mail className="h-5 w-5 text-purple-500" />
-                  <span className="text-sky-50">recruitment@forgeacademy.co.za</span>
+                  <span className="text-sky-50">talent@forgeacademy.co.za</span>
                 </div>
                 <div className="flex items-center space-x-3 text-sky-200">
                   <Phone className="h-5 w-5 text-purple-500" />

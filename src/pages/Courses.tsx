@@ -428,7 +428,7 @@ const courses: Course[] = [
     price: "5000",
     image: "image.png",
     subCourses: [
-      { title: "AWS Cloud Practitioner", description: "Cloud computing is the on-demand delivery of IT resources over the Internet with pay-as-you-go pricing. Instead of buying, owning, and maintaining physical data centers and servers, you can access technology services, such as computing power, storage, and databases, on an as-needed basis from a cloud provider like Amazon Web Services (AWS)." ,Cost:"R 1 825.11" ,NB:"PLEASE NOTE TO USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
+      { title: "AWS Cloud Practitioner", description: "Cloud computing is the on-demand delivery of IT resources over the Internet with pay-as-you-go pricing. Instead of buying, owning, and maintaining physical data centers and servers, you can access technology services, such as computing power, storage, and databases, on an as-needed basis from a cloud provider like Amazon Web Services (AWS)." ,Cost:"Request Price" ,NB:"PLEASE NOTE TO USE MODULE NAME AS REFERENCE WHEN MAKING PAYMENTS"},
       ],
   },
   {
