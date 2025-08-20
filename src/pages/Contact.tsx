@@ -34,6 +34,9 @@ const Contact: React.FC = () => {
     transition: 'all 0.3s ease-in-out',
     boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
     animation: 'formAnimation 0.1s ease-in-out',
+    width: '100%', // Make form take full width of its container
+    maxWidth: '500px', // Limit max width for larger screens
+    margin: '0 auto', // Center the form
   };
 
   const inputStyle: React.CSSProperties = {
@@ -46,21 +49,22 @@ const Contact: React.FC = () => {
     color: 'white',
     border: '2px solid rgba(139, 92, 246, 0.2)',
     boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
+    width: '100%', // Ensure inputs take full width
+    boxSizing: 'border-box', // Prevent padding from causing overflow
+    fontSize: '16px', // Base font size
   };
 
   const selectStyle: React.CSSProperties = {
     ...inputStyle,
     appearance: 'none',
     paddingRight: '30px',
-    backgroundColor: 'rgb(17, 24, 39)', // Matches form background
+    backgroundColor: 'rgb(17, 24, 39)',
     backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23E9D5FF%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3e%3cpolyline points=%226 9 12 15 18 9%22%3e%3c/polyline%3e%3c/svg%3e")',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'right 10px center',
     backgroundSize: '12px',
-     transition: 'border-color 0.1s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-    color:'Black' ,
-    
-    
+    transition: 'border-color 0.1s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+    color: 'white', // Changed to white for consistency
   };
 
   const textareaStyle: React.CSSProperties = {
@@ -74,6 +78,9 @@ const Contact: React.FC = () => {
     border: '2px solid rgba(139, 92, 246, 0.2)',
     boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
     minHeight: '110px',
+    width: '100%', // Ensure textarea takes full width
+    boxSizing: 'border-box',
+    fontSize: '16px',
   };
 
   const buttonStyle: React.CSSProperties = {
@@ -89,47 +96,49 @@ const Contact: React.FC = () => {
     transform: 'rotateX(0deg)',
     transition: 'all 0.3s ease-in-out',
     boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
+    width: '100%', // Make button full-width on smaller screens
+    maxWidth: '200px', // Limit button width on larger screens
+    margin: '0 auto', // Center the button
   };
 
   const dropdownItemStyle: React.CSSProperties = {
-  padding: '10px',
-  color: 'white',
-  cursor: 'pointer',
-  transition: 'background-color 0.2s ease-in-out',
-  backgroundColor: 'rgb(17, 24, 39)', // Ensure item background matches form
-};
-  
+    padding: '10px',
+    color: 'white',
+    cursor: 'pointer',
+    transition: 'background-color 0.2s ease-in-out',
+    backgroundColor: 'rgb(17, 24, 39)',
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  const serviceID = "service_elglbxq";
-  const templateID = "template_q0qduon";
-  const publicKey = "GZpn0xe2_QcxiSfgj";
-  const templateParams = {
-    from_name: formData.name,
-    from_email: formData.email.toLowerCase(), // Normalize email
-    phone_number: formData.number,
-    subject: formData.subject,
-    purpose: formData.purpose,
-    message: formData.message,
-    to_email: "recruitment@forgeacademy.co.za",
+    e.preventDefault();
+    const serviceID = "service_elglbxq";
+    const templateID = "template_q0qduon";
+    const publicKey = "GZpn0xe2_QcxiSfgj";
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email.toLowerCase(),
+      phone_number: formData.number,
+      subject: formData.subject,
+      purpose: formData.purpose,
+      message: formData.message,
+      to_email: "recruitment@forgeacademy.co.za",
+    };
+    console.log("Sending templateParams:", templateParams);
+    try {
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      toast({
+        title: "Message Sent!",
+        description: "Your message has been successfully sent. We will get back to you soon!",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "", number: "", purpose: "General Inquiry" });
+    } catch (error) {
+      console.error("Email sending error:", error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+      });
+    }
   };
-  console.log("Sending templateParams:", templateParams); // Debug log
-  try {
-    await emailjs.send(serviceID, templateID, templateParams, publicKey);
-    toast({
-      title: "Message Sent!",
-      description: "Your message has been successfully sent. We will get back to you soon!",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "", number: "", purpose: "General Inquiry" });
-  } catch (error) {
-    console.error("Email sending error:", error); // Already present
-    toast({
-      title: "Error",
-      description: "Something went wrong. Please try again later.",
-    });
-  }
-};
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -160,15 +169,67 @@ const Contact: React.FC = () => {
               opacity: 1;
             }
           }
-        `
-        
-        }
+
+          /* Responsive styles */
+          @media (max-width: 768px) {
+            .container {
+              padding: 0 16px; /* Reduce padding on smaller screens */
+            }
+            .grid {
+              grid-template-columns: 1fr; /* Stack columns on mobile */
+              gap: 24px;
+            }
+            .form-container {
+              max-width: 100%; /* Full width on mobile */
+              padding: 16px; /* Adjust padding */
+            }
+            .iframe-container {
+              position: relative;
+              padding-bottom: 56.25%; /* 16:9 aspect ratio for iframe */
+              height: 0;
+              overflow: hidden;
+            }
+            .iframe-container iframe {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
+            .text-3xl {
+              font-size: 1.75rem; /* Reduce heading size on mobile */
+            }
+            .input, .textarea, .select {
+              font-size: 14px; /* Slightly smaller font for mobile */
+            }
+            .button {
+              font-size: 14px; /* Adjust button font size */
+              padding: 8px 16px; /* Adjust button padding */
+            }
+          }
+
+          @media (max-width: 480px) {
+            .form-container {
+              padding: 12px; /* Further reduce padding */
+            }
+            .text-3xl {
+              font-size: 1.5rem; /* Even smaller heading */
+            }
+            .input, .textarea, .select {
+              font-size: 12px; /* Smaller font for very small screens */
+            }
+            .button {
+              font-size: 12px;
+              padding: 8px 12px;
+            }
+          }
+        `}
       </style>
       <Header />
       <main className="flex-grow pt-24 mb-8">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-6">
+            <div className="space-y-6 form-container">
               <h1 className="text-3xl font-bold text-gradient text-gray-200 italic">Get in Touch</h1>
               <p className="font-bold text-gradient text-gray-50">
                 Don't forget to include your cell number in case we can't reach you through email:
@@ -191,6 +252,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   style={inputStyle}
+                  className="input"
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
@@ -229,6 +291,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   style={inputStyle}
+                  className="input"
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
@@ -267,6 +330,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   style={inputStyle}
+                  className="input"
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
@@ -297,48 +361,48 @@ const Contact: React.FC = () => {
                     }
                   }}
                 />
-                <select className="text-black"
+                <select
                   name="purpose"
                   value={formData.purpose}
                   onChange={handleChange}
                   required
                   style={selectStyle}
+                  className="select text-white" // Changed to white for consistency
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'rgba(1, 1, 3, 0.2)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
                     e.currentTarget.style.transform = 'scale(1.05)';
                     e.currentTarget.style.boxShadow = '0px 2px 4px';
                     e.currentTarget.style.outline = 'none';
                   }}
                   onBlur={(e) => {
                     e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'rgb(139, 92, 246, 0.2)';
+                    e.currentTarget.style.backgroundColor = 'rgb(17, 24, 39)';
                     e.currentTarget.style.transform = 'none';
                     e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
                   }}
                   onMouseEnter={(e) => {
                     if (document.activeElement !== e.currentTarget) {
                       e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgba(17, 24, 39 0.2)';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
                       e.currentTarget.style.transform = 'scale(1.05)';
-                      e.currentTarget.style.boxShadow = '0px 2px 4px rgba(17, 24, 39)';
+                      e.currentTarget.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.3)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (document.activeElement !== e.currentTarget) {
                       e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgb(139, 92, 246, 0.2)';
+                      e.currentTarget.style.backgroundColor = 'rgb(17, 24, 39)';
                       e.currentTarget.style.transform = 'none';
                       e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
                     }
                   }}
                 >
-                  <option value="General Inquiry">Select </option>
-                  <option value="Support">Learnership</option>
-                  <option value="Partnership">Internship</option>
-                  <option value="Feedback">Courses </option>
-                  <option value="Corporate">Corporate </option>
-
+                  <option style={dropdownItemStyle} value="General Inquiry">Select</option>
+                  <option style={dropdownItemStyle} value="Support">Learnership</option>
+                  <option style={dropdownItemStyle} value="Partnership">Internship</option>
+                  <option style={dropdownItemStyle} value="Feedback">Courses</option>
+                  <option style={dropdownItemStyle} value="Corporate">Corporate</option>
                 </select>
                 <Input
                   placeholder="Subject"
@@ -347,6 +411,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   style={inputStyle}
+                  className="input"
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
@@ -384,6 +449,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   style={textareaStyle}
+                  className="textarea"
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
@@ -417,6 +483,7 @@ const Contact: React.FC = () => {
                 <Button
                   type="submit"
                   style={buttonStyle}
+                  className="button"
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = 'rgba(107, 33, 168, 0.3)';
                     e.currentTarget.style.fontSize = '17px';
@@ -447,11 +514,9 @@ const Contact: React.FC = () => {
                   <MapPin className="h-5 w-5 text-purple-500" />
                   <span className="text-sky-50">210 Epsom Avenue Randburg 2169</span>
                 </div>
-                <div>
+                <div className="iframe-container">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.9139528632945!2d27.9519986!3d-26.0363713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e957730c314f9db%3A0x91803bcf42f371a5!2sForge%20Academy%20%26%20Labs!5e0!3m2!1sen!2sza!4v1741615409378!5m2!1sen!2sza"
-                    width="400"
-                    height="300"
                     allowFullScreen
                     loading="lazy"
                     className="rounded-3xl shadow-lg"
