@@ -19,101 +19,89 @@ const Contact: React.FC = () => {
     purpose: "General Inquiry",
   });
 
+  useEffect(() => {
+    emailjs.init("GZpn0xe2_QcxiSfgj"); // Initialize EmailJS with public key
+  }, []);
+
   const formStyle: React.CSSProperties = {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '10px',
-    padding: '20px',
-    backgroundColor: 'rgb(17, 24, 39)',
-    borderRadius: '10px',
-    overflow: 'hidden',
-    perspective: '1000px',
-    transformStyle: 'preserve-3d',
-    transform: 'rotateX(10deg)',
-    transition: 'all 0.3s ease-in-out',
-    boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
-    animation: 'formAnimation 0.1s ease-in-out',
-    width: '100%', // Make form take full width of its container
-    maxWidth: '500px', // Limit max width for larger screens
-    margin: '0 auto', // Center the form
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    padding: "20px",
+    backgroundColor: "rgb(17, 24, 39)",
+    borderRadius: "10px",
+    overflow: "hidden",
+    perspective: "1000px",
+    transformStyle: "preserve-3d",
+    transform: "rotateX(10deg)",
+    transition: "all 0.3s ease-in-out",
+    boxShadow:
+      "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
+    animation: "formAnimation 0.1s ease-in-out",
+    width: "100%",
+    maxWidth: "500px",
+    margin: "0 auto",
   };
 
   const inputStyle: React.CSSProperties = {
-    padding: '10px',
-    borderRadius: '5px',
-    backgroundColor: 'rgb(17, 24, 39)',
-    transition: 'border-color 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.1s ease-in-out',
-    transformStyle: 'preserve-3d',
-    backfaceVisibility: 'hidden',
-    color: 'white',
-    border: '2px solid rgba(139, 92, 246, 0.2)',
-    boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
-    width: '100%', // Ensure inputs take full width
-    boxSizing: 'border-box', // Prevent padding from causing overflow
-    fontSize: '16px', // Base font size
+    padding: "10px",
+    borderRadius: "5px",
+    backgroundColor: "rgb(17, 24, 39)",
+    color: "white",
+    border: "2px solid rgba(139, 92, 246, 0.2)",
+    boxShadow:
+      "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
+    width: "100%",
+    boxSizing: "border-box",
+    fontSize: "16px",
   };
 
   const selectStyle: React.CSSProperties = {
     ...inputStyle,
-    appearance: 'none',
-    paddingRight: '30px',
-    backgroundColor: 'rgb(17, 24, 39)',
-    backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23E9D5FF%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3e%3cpolyline points=%226 9 12 15 18 9%22%3e%3c/polyline%3e%3c/svg%3e")',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'right 10px center',
-    backgroundSize: '12px',
-    transition: 'border-color 0.1s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-    color: 'white', // Changed to white for consistency
+    appearance: "none",
+    paddingRight: "30px",
+    backgroundImage:
+      'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23E9D5FF%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3e%3cpolyline points=%226 9 12 15 18 9%22%3e%3c/polyline%3e%3c/svg%3e")',
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "right 10px center",
+    backgroundSize: "12px",
   };
 
   const textareaStyle: React.CSSProperties = {
-    padding: '10px',
-    borderRadius: '5px',
-    backgroundColor: 'rgb(17, 24, 39)',
-    transition: 'border-color 0.1s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-    transformStyle: 'preserve-3d',
-    backfaceVisibility: 'hidden',
-    color: 'white',
-    border: '2px solid rgba(139, 92, 246, 0.2)',
-    boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
-    minHeight: '110px',
-    width: '100%', // Ensure textarea takes full width
-    boxSizing: 'border-box',
-    fontSize: '16px',
+    ...inputStyle,
+    minHeight: "110px",
   };
 
   const buttonStyle: React.CSSProperties = {
-    padding: '10px 20px',
-    border: 'none',
-    borderRadius: '5px',
-    backgroundColor: 'rgb(88, 28, 135)',
-    color: '#E9D5FF',
-    fontSize: '16px',
-    cursor: 'pointer',
-    transformStyle: 'preserve-3d',
-    backfaceVisibility: 'hidden',
-    transform: 'rotateX(0deg)',
-    transition: 'all 0.3s ease-in-out',
-    boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
-    width: '100%', // Make button full-width on smaller screens
-    maxWidth: '200px', // Limit button width on larger screens
-    margin: '0 auto', // Center the button
+    padding: "10px 20px",
+    border: "none",
+    borderRadius: "5px",
+    backgroundColor: "rgb(88, 28, 135)",
+    color: "#E9D5FF",
+    fontSize: "16px",
+    cursor: "pointer",
+    transform: "rotateX(0deg)",
+    transition: "all 0.3s ease-in-out",
+    boxShadow:
+      "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
+    width: "100%",
+    maxWidth: "200px",
+    margin: "0 auto",
   };
 
   const dropdownItemStyle: React.CSSProperties = {
-    padding: '10px',
-    color: 'white',
-    cursor: 'pointer',
-    transition: 'background-color 0.2s ease-in-out',
-    backgroundColor: 'rgb(17, 24, 39)',
+    padding: "10px",
+    color: "white",
+    cursor: "pointer",
+    transition: "background-color 0.2s ease-in-out",
+    backgroundColor: "rgb(17, 24, 39)",
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const serviceID = "service_elglbxq";
     const templateID = "template_q0qduon";
-    const publicKey = "GZpn0xe2_QcxiSfgj";
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email.toLowerCase(),
@@ -125,7 +113,7 @@ const Contact: React.FC = () => {
     };
     console.log("Sending templateParams:", templateParams);
     try {
-      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      await emailjs.send(serviceID, templateID, templateParams);
       toast({
         title: "Message Sent!",
         description: "Your message has been successfully sent. We will get back to you soon!",
@@ -147,10 +135,6 @@ const Contact: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  useEffect(() => {
-    sessionStorage.clear();
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col">
       <div className="fixed inset-0 z-[-1] vr-background">
@@ -170,22 +154,56 @@ const Contact: React.FC = () => {
             }
           }
 
-          /* Responsive styles */
+          .input, .textarea, .select {
+            transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+          }
+
+          .input:hover, .textarea:hover, .select:hover,
+          .input:focus, .textarea:focus, .select:focus {
+            border-color: rgba(139, 92, 246, 0.2) !important;
+            background-color: rgba(255, 255, 255, 0.2) !important;
+            transform: scale(1.05);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+            outline: none;
+          }
+
+          .button:hover {
+            background-color: rgba(107, 33, 168, 0.3) !important;
+            font-size: 17px;
+            transform: scale(1.05) rotateY(20deg);
+          }
+
+          /* Visually hidden labels for accessibility */
+          .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+          }
+
+          /* Ensure vertical stacking on mobile */
           @media (max-width: 768px) {
             .container {
-              padding: 0 16px; /* Reduce padding on smaller screens */
+              padding: 0 16px;
             }
             .grid {
-              grid-template-columns: 1fr; /* Stack columns on mobile */
+              display: flex;
+              flex-direction: column;
               gap: 24px;
             }
             .form-container {
-              max-width: 100%; /* Full width on mobile */
-              padding: 16px; /* Adjust padding */
+              max-width: 100%;
+              padding: 16px;
             }
             .iframe-container {
               position: relative;
-              padding-bottom: 56.25%; /* 16:9 aspect ratio for iframe */
+              padding-bottom: 56.25%;
               height: 0;
               overflow: hidden;
             }
@@ -197,26 +215,26 @@ const Contact: React.FC = () => {
               height: 100%;
             }
             .text-3xl {
-              font-size: 1.75rem; /* Reduce heading size on mobile */
+              font-size: 1.75rem;
             }
             .input, .textarea, .select {
-              font-size: 14px; /* Slightly smaller font for mobile */
+              font-size: 14px;
             }
             .button {
-              font-size: 14px; /* Adjust button font size */
-              padding: 8px 16px; /* Adjust button padding */
+              font-size: 14px;
+              padding: 8px 16px;
             }
           }
 
           @media (max-width: 480px) {
             .form-container {
-              padding: 12px; /* Further reduce padding */
+              padding: 12px;
             }
             .text-3xl {
-              font-size: 1.5rem; /* Even smaller heading */
+              font-size: 1.5rem;
             }
             .input, .textarea, .select {
-              font-size: 12px; /* Smaller font for very small screens */
+              font-size: 12px;
             }
             .button {
               font-size: 12px;
@@ -238,14 +256,17 @@ const Contact: React.FC = () => {
                 onSubmit={handleSubmit}
                 style={formStyle}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'rotateX(0deg)';
+                  e.currentTarget.style.transform = "rotateX(0deg)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'rotateX(-10deg)';
+                  e.currentTarget.style.transform = "rotateX(-10deg)";
                 }}
-                className="bg-gray-300"
               >
+                <label htmlFor="name" className="visually-hidden">
+                  Your Name
+                </label>
                 <Input
+                  id="name"
                   placeholder="Your Name"
                   name="name"
                   value={formData.name}
@@ -253,37 +274,12 @@ const Contact: React.FC = () => {
                   required
                   style={inputStyle}
                   className="input"
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                    e.currentTarget.style.transform = 'scale(1.05)';
-                    e.currentTarget.style.boxShadow = '0px 2px 4px';
-                    e.currentTarget.style.outline = 'none';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.transform = 'none';
-                    e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                  }}
-                  onMouseEnter={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                      e.currentTarget.style.transform = 'scale(1.05)';
-                      e.currentTarget.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.3)';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.transform = 'none';
-                      e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                    }
-                  }}
                 />
+                <label htmlFor="email" className="visually-hidden">
+                  Your Email
+                </label>
                 <Input
+                  id="email"
                   type="email"
                   placeholder="Your Email"
                   name="email"
@@ -292,37 +288,12 @@ const Contact: React.FC = () => {
                   required
                   style={inputStyle}
                   className="input"
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                    e.currentTarget.style.transform = 'scale(1.05)';
-                    e.currentTarget.style.boxShadow = '0px 2px 4px';
-                    e.currentTarget.style.outline = 'none';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.transform = 'none';
-                    e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                  }}
-                  onMouseEnter={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                      e.currentTarget.style.transform = 'scale(1.05)';
-                      e.currentTarget.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.3)';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.transform = 'none';
-                      e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                    }
-                  }}
                 />
+                <label htmlFor="number" className="visually-hidden">
+                  Phone Number
+                </label>
                 <Input
+                  id="number"
                   type="tel"
                   placeholder="Phone Number"
                   name="number"
@@ -331,80 +302,40 @@ const Contact: React.FC = () => {
                   required
                   style={inputStyle}
                   className="input"
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                    e.currentTarget.style.transform = 'scale(1.05)';
-                    e.currentTarget.style.boxShadow = '0px 2px 4px';
-                    e.currentTarget.style.outline = 'none';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.transform = 'none';
-                    e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                  }}
-                  onMouseEnter={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                      e.currentTarget.style.transform = 'scale(1.05)';
-                      e.currentTarget.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.3)';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.transform = 'none';
-                      e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                    }
-                  }}
                 />
+                <label htmlFor="purpose" className="visually-hidden">
+                  Purpose
+                </label>
                 <select
+                  id="purpose"
                   name="purpose"
                   value={formData.purpose}
                   onChange={handleChange}
                   required
                   style={selectStyle}
-                  className="select text-white" // Changed to white for consistency
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                    e.currentTarget.style.transform = 'scale(1.05)';
-                    e.currentTarget.style.boxShadow = '0px 2px 4px';
-                    e.currentTarget.style.outline = 'none';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'rgb(17, 24, 39)';
-                    e.currentTarget.style.transform = 'none';
-                    e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                  }}
-                  onMouseEnter={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                      e.currentTarget.style.transform = 'scale(1.05)';
-                      e.currentTarget.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.3)';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgb(17, 24, 39)';
-                      e.currentTarget.style.transform = 'none';
-                      e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                    }
-                  }}
+                  className="select text-white"
                 >
-                  <option style={dropdownItemStyle} value="General Inquiry">Select</option>
-                  <option style={dropdownItemStyle} value="Support">Learnership</option>
-                  <option style={dropdownItemStyle} value="Partnership">Internship</option>
-                  <option style={dropdownItemStyle} value="Feedback">Courses</option>
-                  <option style={dropdownItemStyle} value="Corporate">Corporate</option>
+                  <option style={dropdownItemStyle} value="General Inquiry">
+                    Select
+                  </option>
+                  <option style={dropdownItemStyle} value="Support">
+                    Learnership
+                  </option>
+                  <option style={dropdownItemStyle} value="Partnership">
+                    Internship
+                  </option>
+                  <option style={dropdownItemStyle} value="Feedback">
+                    Courses
+                  </option>
+                  <option style={dropdownItemStyle} value="Corporate">
+                    Corporate
+                  </option>
                 </select>
+                <label htmlFor="subject" className="visually-hidden">
+                  Subject
+                </label>
                 <Input
+                  id="subject"
                   placeholder="Subject"
                   name="subject"
                   value={formData.subject}
@@ -412,37 +343,12 @@ const Contact: React.FC = () => {
                   required
                   style={inputStyle}
                   className="input"
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                    e.currentTarget.style.transform = 'scale(1.05)';
-                    e.currentTarget.style.boxShadow = '0px 2px 4px';
-                    e.currentTarget.style.outline = 'none';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.transform = 'none';
-                    e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                  }}
-                  onMouseEnter={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                      e.currentTarget.style.transform = 'scale(1.05)';
-                      e.currentTarget.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.3)';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.transform = 'none';
-                      e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                    }
-                  }}
                 />
+                <label htmlFor="message" className="visually-hidden">
+                  Your Message
+                </label>
                 <Textarea
+                  id="message"
                   placeholder="Your Message"
                   name="message"
                   value={formData.message}
@@ -450,49 +356,15 @@ const Contact: React.FC = () => {
                   required
                   style={textareaStyle}
                   className="textarea"
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                    e.currentTarget.style.transform = 'scale(1.05)';
-                    e.currentTarget.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.3)';
-                    e.currentTarget.style.outline = 'none';
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.transform = 'none';
-                    e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                  }}
-                  onMouseEnter={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-                      e.currentTarget.style.transform = 'scale(1.05)';
-                      e.currentTarget.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.3)';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (document.activeElement !== e.currentTarget) {
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.transform = 'none';
-                      e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset';
-                    }
-                  }}
                 />
                 <Button
                   type="submit"
                   style={buttonStyle}
                   className="button"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(107, 33, 168, 0.3)';
-                    e.currentTarget.style.fontSize = '17px';
-                    e.currentTarget.style.transform = 'scale(1.05) rotateY(20deg)';
-                  }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(107, 33, 168, 0.2)';
-                    e.currentTarget.style.fontSize = '16px';
-                    e.currentTarget.style.transform = 'rotateX(-10deg)';
+                    e.currentTarget.style.backgroundColor = "rgb(88, 28, 135)";
+                    e.currentTarget.style.fontSize = "16px";
+                    e.currentTarget.style.transform = "rotateX(-10deg)";
                   }}
                 >
                   Send Message
